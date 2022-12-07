@@ -3,7 +3,7 @@
 function getPosts() {
     // We connect to the database.
     try {
-        $database = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'pma', '');
+        $database = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'pma', ''); 
     } catch(Exception $e) {
         die('Erreur : '.$e->getMessage());
     }
