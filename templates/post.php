@@ -8,12 +8,9 @@
 
     <body>
         <h1>Le super blog de l'AVBN !</h1>
-        <p>Derniers billets du blog :</p>
+        <p><a href="index.php">Retour à la liste des billets</a></p>
 
-        <?php
-        foreach ($posts as $post) {
-        ?>
-            <div class="news">
+        <div class="news">
                 <h3>
                     <?= htmlspecialchars($post['title']); ?>
                     <em>le <?= $post['french_creation_date']; ?></em>
@@ -21,12 +18,23 @@
                 <p>
                     <?= nl2br(htmlspecialchars($post['content']));
                     ?>
-                    <br />
-                    <em><a href="post.php?id=<?= urlencode($post['identifier']) ?>">Commentaires</a></em>
                 </p>
-            </div>
+        </div>
+
+        <h2>Commentaires</h2>
+
         <?php
-        } // The end of the posts loop.
+        foreach ($comments as $comment) {
         ?>
+            <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['french_creation_date'] ?></p>
+            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+        <?php
+        }
+        ?>
+
+
+
+
+        
     </body>
 </html>
